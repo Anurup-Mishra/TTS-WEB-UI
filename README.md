@@ -95,9 +95,3 @@ Coqui TTS: Requires a commercial license for commercial use. Otherwise, it is go
 
 
 ***
-
-### How to update it:
-1. Open your `README.md` file in VS Code.
-2. Delete everything currently in there.
-3. Paste this new code block in.
-4. Run your `git add .`, `git commit -m "Update README"`, and `git push` commands. 
