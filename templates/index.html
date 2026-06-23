@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TTS Web UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Text → Speech (Demo)</h1>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% endwith %}
+
+      <form action="{{ url_for('synthesize') }}" method="post" enctype="multipart/form-data">
+        <label for="text">Text to synthesize</label>
+        <textarea id="text" name="text" rows="10" placeholder="Paste your text here...">Hello, this is a quick demo of the TTS web interface.</textarea>
+
+        <label for="engine">Engine</label>
+        <select id="engine" name="engine">
+          <option value="auto">Auto (Coqui if installed, else pyttsx3)</option>
+          <option value="coqui">Coqui TTS (neural)</option>
+          <option value="pyttsx3">pyttsx3 (offline)</option>
+        </select>
+
+        <label for="rate">Rate (words per minute)</label>
+        <input id="rate" name="rate" type="number" value="150" min="80" max="350"/>
+
+        <label for="music">Optional background music (mp3/wav)</label>
+        <input id="music" name="music" type="file" accept=".mp3,.wav,.ogg,.m4a" />
+
+        <button type="submit">Synthesize & Download</button>
+      </form>
+
+      <footer>
+        <p>Notes: Coqui models may take time to download the first run. Ensure ffmpeg is installed.</p>
+      </footer>
+    </div>
+  </body>
+</html>

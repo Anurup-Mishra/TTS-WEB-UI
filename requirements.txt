@@ -1,0 +1,5 @@
+Flask>=2.0
+TTS>=0.14.0    # Coqui TTS (optional, heavy). If you don't want it, remove this line.
+pyttsx3>=2.90
+pydub>=0.25.1
+python-dotenv>=1.0.0
