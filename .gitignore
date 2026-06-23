@@ -1,0 +1,17 @@
+# Environments
+.env
+.venv/
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Audio Files (Optional: prevents uploading massive files)
+*.mp3
+*.wav
+!voices/  # Keeps your celebrity voices folder but ignores generated audio
+
+# Mac/Windows system files
+.DS_Store
+Thumbs.db
